@@ -1,0 +1,20 @@
+#!/bin/bash
+# Copyright 2026 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+HELIUM_FLAGS=()
+[[ -r /etc/helium/default ]] && source /etc/helium/default
+user_flags=()
+flags_file="${XDG_CONFIG_HOME:-${HOME}/.config}/helium-flags.conf"
+if [[ -r ${flags_file} ]]; then
+	while IFS= read -r flag || [[ -n ${flag} ]]; do
+		[[ -z ${flag} || ${flag} == \#* ]] && continue
+		user_flags+=( "${flag}" )
+	done < "${flags_file}"
+fi
+
+export CHROME_WRAPPER="$(readlink -f "$0")"
+export CHROME_DESKTOP=helium.desktop
+export CHROME_VERSION_EXTRA=gentoo
+export LD_LIBRARY_PATH="@HELIUM_HOME@${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"
+exec "@HELIUM_HOME@/helium" --gtk-version=@GTK_VERSION@ "${HELIUM_FLAGS[@]}" "${user_flags[@]}" "$@"

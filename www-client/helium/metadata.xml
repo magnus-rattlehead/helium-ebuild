@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+ <upstream><remote-id type="github">imputnet/helium-linux</remote-id></upstream>
+ <use>
+  <flag name="nonfree-search-icons">Include upstream nonfree search-provider logos (onboarding logos are always included)</flag>
+  <flag name="gtk4">Prefer GTK4 at runtime instead of GTK3 (build uses upstream GTK3 headers)</flag>
+  <flag name="screencast">Enable PipeWire screen sharing</flag>
+  <flag name="chromedriver">Build the WebDriver executable</flag>
+  <flag name="pgo">Optimize using the Linux profile pinned by this Chromium release</flag>
+ </use>
+</pkgmetadata>

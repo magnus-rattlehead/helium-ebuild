@@ -1,0 +1,3 @@
+# Additional browser arguments, using Bash array syntax. For example:
+# HELIUM_FLAGS=( --ozone-platform=wayland )
+HELIUM_FLAGS=()

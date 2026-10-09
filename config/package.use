@@ -1,0 +1,2 @@
+# Upstream compiler, libraries, codecs, Widevine and ThinLTO are always enabled.
+www-client/helium wayland -gtk4 pulseaudio screencast vaapi pgo nonfree-search-icons -X -cups -qt6 -chromedriver
